@@ -1,14 +1,15 @@
 import { ArrowLeft, ArrowRight } from 'phosphor-react';
+import RequestPokemons from '../interfaces/reqPokemons';
 import { LIMIT_PER_PAGE } from '../services/pokeapi';
 
 interface PaginationProps {
   page: number;
-  count: number;
   setPage: Function;
+  data: RequestPokemons;
 }
 
-function Pagination({ page, setPage, count }: PaginationProps) {
-  const teste = count / LIMIT_PER_PAGE;
+function Pagination({ page, setPage, data }: PaginationProps) {
+  const teste = data.countPokemons / LIMIT_PER_PAGE;
 
   const prevPage = () => {
     if (page < 0) return;
